@@ -1,17 +1,11 @@
-import { MenuItem, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import '../styles/recyclersignup.css'
-
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getAddress } from 'ethers';
 import { Web3Provider } from '@ethersproject/providers';
 
-import { useNavigate } from 'react-router-dom';
+import '../styles/Listing.css'
 
-
-
-const recyclersignup = () => {
+const Listings = () => {
 
     const abi = [
         {
@@ -189,75 +183,42 @@ const recyclersignup = () => {
           "type": "function"
         }
       ];
-      
 
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        recyclerName: '',
-        recyclerWalletAddress: '',
-        recyclerEmail: '',
-    });
-    
-    const handleInputChange = (event : any) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        const jsonData = JSON.stringify(formData);
-        console.log(jsonData);
-        const frecyclerdata = jsonData.toString();
-        console.log(frecyclerdata);
-        console.log(typeof(frecyclerdata));
-
-        const encodedData = encodeURIComponent(frecyclerdata);
-
-        const redurl = `${encodedData}`;
-
-        console.log(redurl);
-        
-        Clicker(redurl);   
-
-        setTimeout(() => {
-            navigate('/');
-        }, 1000);
-    };
     const [currentAccount, setCurrentAccount] = useState(''); //fetched from metamask
     const [correctNetwork, setCorrectNetwork] = useState(false); //fetched from metamask
     
     const connectWallet = async () => {
         try {
-          const { ethereum } = window;
-          if (!ethereum) {
+        const { ethereum } = window;
+        if (!ethereum) {
             alert('Metamask Not Found ! Get MetaMask and Try Again.');
             return;
-          }
+        }
     
-          let chainId = await ethereum.request({ method: 'eth_chainId' });
-          console.log(chainId);
-          const shardeumChainId = '0xaa36a7';
-          if (chainId !== shardeumChainId) {
+        let chainId = await ethereum.request({ method: 'eth_chainId' });
+        console.log(chainId);
+        const shardeumChainId = '0xaa36a7';
+        if (chainId !== shardeumChainId) {
             alert('Please Connect to sapolina Testnet');
             return;
-          }
-          else {
-            setCorrectNetwork(true);
-          }
-    
-          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-          setCurrentAccount(accounts[0]);
-        } catch (error) {
-          console.log(error);
         }
-      }
+        else {
+            setCorrectNetwork(true);
+        }
+    
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        setCurrentAccount(accounts[0]);
+        } catch (error) {
+        console.log(error);
+        }
+    }
     
     const Clicker = async (tempvar: string) => {
         try {
-          const { ethereum } = window;
-          const data = tempvar;
-          alert(data);
-          if (ethereum) {
+        const { ethereum } = window;
+        const data = tempvar;
+        alert(data);
+        if (ethereum) {
             //setting up provider
             const provider = new Web3Provider(ethereum);
             const signer = provider.getSigner();
@@ -265,48 +226,44 @@ const recyclersignup = () => {
             const VoteContract = new ethers.Contract('0xd51CDee5ed0E6761BbC108646485F01540Db1564', abi, signer);
             console.log('VoteContract : ', VoteContract);
             //calling the smart contract
-            VoteContract.AddRecycler(data).then(
-              response => {
+            VoteContract.AddWaste(data).then(
+            response => {
                 console.log('response is : ', response);
-              }
+            }
             ).catch(err => {
-              console.log(err);
+            console.log(err);
             });
     
-          }
-          else {
-            console.log('Ethereum object not found');
-          }
-        } catch (error) {
-          console.log(error);
         }
-      }
+        else {
+            console.log('Ethereum object not found');
+        }
+        } catch (error) {
+        console.log(error);
+        }
+    }
     
-      useEffect(() => {
+    useEffect(() => {
         connectWallet();
-      }, []);
-    
+    }, []);
         
+  
+
     return ( 
-        <div className="signup">
-            <p className='signup_header'>Recycler</p>
-            <div className='signup_card'>
-                <div className="signup_div">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form_elements">
-                            <TextField type="text" name="recyclerName" id="outlined-basic" variant="outlined" placeholder="Recycler name" onChange={handleInputChange} required/>
-                            <br /> 
-                            <TextField type="text"  name="recyclerWalletAddress" id="outlined-basic" variant="outlined" placeholder="Recycler email" onChange={handleInputChange} required/>
-                            <br /> 
-                            <TextField type="text" name="recyclerEmail" id="outlined-basic" variant="outlined" placeholder="wallet address" onChange={handleInputChange} required/>
-                            <br /> 
-                            <Button type='submit' className='button_1' variant="contained"><h2>Submit</h2></Button>
-                        </div>
-                    </form>
+        <div className="Listing">
+            <p className='Listing_header'>Listings</p>
+            <div className="Listing_body">
+                <div className='Listing_body_heading'>
+                    <h2>Product Name</h2> 
+                    <h2>Product ID</h2>
+                    <h2>Product Description</h2>
                 </div>
-            </div>        
+                <div className='Listing_body_details'>
+
+                </div>
+            </div>
         </div>
      );
 }
  
-export default recyclersignup;
+export default Listings;

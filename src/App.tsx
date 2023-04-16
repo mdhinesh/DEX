@@ -9,6 +9,7 @@ import Recyclersignup from './pages/recyclersignup';
 import Usersignup from './pages/usersignup';
 
 import { Routes, Route } from 'react-router-dom'
+import Listings from './pages/Listing';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
         <Route path='producersignup' element={<ProducerSignup />} />
         <Route path='recyclersignup' element={<Recyclersignup />} />
         <Route path='usersignup' element={<Usersignup />} />
+        <Route path='listings' element={<Listings />} />
       </Routes>
     </div>
   )

@@ -25,6 +25,16 @@ const ProducerSignup = () => {
         event.preventDefault();
         const jsonData = JSON.stringify(formData);
         console.log(jsonData);
+        const fproducerdata = jsonData.toString();
+        console.log(fproducerdata);
+        console.log(typeof(fproducerdata));
+
+        const encodedData = encodeURIComponent(fproducerdata);
+
+        const url = `${encodedData}`;
+
+        console.log(url);
+        
 
         // // Code to store the quiz data in the firebase database
         // const res = fetch("https://brainbuster-fba66-default-rtdb.asia-southeast1.firebasedatabase.app/quiz.json",

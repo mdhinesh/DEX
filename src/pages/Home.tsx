@@ -25,8 +25,8 @@ const Home = () => {
                                 <div><h2>3. Smart Contract:</h2>Tenure is registered under user name with purchase data and expiration date.</div>
                                 <div><h2>4. Recycler:</h2>Registers in the network after the product is recycled or disposed successfully.</div>
                                 <br />
-                                <div className='temp'><h2>If you are a signup here</h2></div>
-                                <div><button className='navigation_button'><Link className='navigation_link' to='usersignup'><h2>User singup</h2></Link></button></div>
+                                <div className='temp'><h2>E-Waste declaration</h2></div>
+                                <div><button className='navigation_button'><Link className='navigation_link' to='usersignup'><h2>Signup</h2></Link></button></div>
                             </ol>
                         </h3>
                     </div>

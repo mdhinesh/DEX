@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
-const ProducerSignup = () => {
-
-
+const usersignup = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        producerName: '',
-        producerEmail: '', 
-        producerWalletAddress: '',
+        userName: '',
+        userEmail: '', 
+        userWalletAddress: '',
+        // Set the todays date
+        productPurchaseDate: Date.now
     });
     
     const handleInputChange = (event : any) => {
@@ -43,16 +43,16 @@ const ProducerSignup = () => {
         
     return ( 
         <div className="signup">
-            <p className='signup_header'>Producer</p>
+            <p className='signup_header'>User</p>
             <div className='signup_card'>
                 <div className="signup_div">
                     <form onSubmit={handleSubmit}>
                         <div className="form_elements">
-                            <TextField type="text" name="producerName" id="outlined-basic" variant="outlined" placeholder="Producer name" onChange={handleInputChange} required/>
+                            <TextField type="text" name="userName" id="outlined-basic" variant="outlined" placeholder="User name" onChange={handleInputChange} required/>
                             <br /> 
-                            <TextField type="text"  name="producerEmail" id="outlined-basic" variant="outlined" placeholder="Producer email" onChange={handleInputChange} required/>
+                            <TextField type="text"  name="userEmail" id="outlined-basic" variant="outlined" placeholder="User email" onChange={handleInputChange} required/>
                             <br /> 
-                            <TextField type="text" name="producerWalletAddress" id="outlined-basic" variant="outlined" placeholder="wallet address" onChange={handleInputChange} required/>
+                            <TextField type="text" name="userWalletAddress" id="outlined-basic" variant="outlined" placeholder="wallet address" onChange={handleInputChange} required/>
                             <br /> 
                             <Button type='submit' className='button_1' variant="contained"><h2>Submit</h2></Button>
                         </div>
@@ -60,7 +60,6 @@ const ProducerSignup = () => {
                 </div>
             </div>        
         </div>
-     );
-}
+     );}
  
-export default ProducerSignup;
+export default usersignup;

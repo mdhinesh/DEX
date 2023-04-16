@@ -6,6 +6,7 @@ import './App.css'
 import Home from './pages/Home';
 import ProducerSignup from './pages/ProducerSignup';
 import Recyclersignup from './pages/recyclersignup';
+import Usersignup from './pages/usersignup';
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='producersignup' element={<ProducerSignup />} />
         <Route path='recyclersignup' element={<Recyclersignup />} />
+        <Route path='usersignup' element={<Usersignup />} />
       </Routes>
     </div>
   )

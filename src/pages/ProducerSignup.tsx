@@ -5,6 +5,7 @@ import '../styles/ProducerSignup.css'
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getAddress } from 'ethers';
+//@ts-ignore
 import { Web3Provider } from '@ethersproject/providers';
 
 import { useNavigate } from 'react-router-dom';
@@ -228,6 +229,7 @@ const ProducerSignup = () => {
     
     const connectWallet = async () => {
         try {
+            //@ts-ignore
           const { ethereum } = window;
           if (!ethereum) {
             alert('Metamask Not Found ! Get MetaMask and Try Again.');
@@ -254,6 +256,7 @@ const ProducerSignup = () => {
     
     const Clicker = async (tempvar: string) => {
         try {
+            //@ts-ignore
           const { ethereum } = window;
           const data = tempvar;
           alert(data);
@@ -262,6 +265,7 @@ const ProducerSignup = () => {
             const provider = new Web3Provider(ethereum);
             const signer = provider.getSigner();
             console.log('signer : ', signer);
+            //@ts-ignore
             const VoteContract = new ethers.Contract('0xd51CDee5ed0E6761BbC108646485F01540Db1564', abi, signer);
             console.log('VoteContract : ', VoteContract);
             //calling the smart contract

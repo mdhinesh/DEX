@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getAddress } from 'ethers';
+//@ts-ignore
 import { Web3Provider } from '@ethersproject/providers';
 
-
+// const { Web3Provider } = require("@ethersproject/providers");
 
 const usersignup = () => {
 
@@ -231,6 +232,7 @@ const usersignup = () => {
     
     const connectWallet = async () => {
         try {
+        //@ts-ignore
           const { ethereum } = window;
           if (!ethereum) {
             alert('Metamask Not Found ! Get MetaMask and Try Again.');
@@ -257,7 +259,8 @@ const usersignup = () => {
     
     const Clicker = async (tempvar: string) => {
         try {
-          const { ethereum } = window;
+            //@ts-ignore
+            const { ethereum } = window;
           const data = tempvar;
           alert(data);
           if (ethereum) {
@@ -265,6 +268,7 @@ const usersignup = () => {
             const provider = new Web3Provider(ethereum);
             const signer = provider.getSigner();
             console.log('signer : ', signer);
+            //@ts-ignore
             const VoteContract = new ethers.Contract('0xd51CDee5ed0E6761BbC108646485F01540Db1564', abi, signer);
             console.log('VoteContract : ', VoteContract);
             //calling the smart contract

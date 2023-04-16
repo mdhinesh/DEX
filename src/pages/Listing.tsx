@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getAddress } from 'ethers';
+//@ts-ignore
 import { Web3Provider } from '@ethersproject/providers';
 
 import '../styles/Listing.css'
@@ -189,6 +190,7 @@ const Listings = () => {
     
     const connectWallet = async () => {
         try {
+            //@ts-ignore
         const { ethereum } = window;
         if (!ethereum) {
             alert('Metamask Not Found ! Get MetaMask and Try Again.');
@@ -215,6 +217,7 @@ const Listings = () => {
     
     const Clicker = async (tempvar: string) => {
         try {
+            //@ts-ignore
         const { ethereum } = window;
         const data = tempvar;
         alert(data);
@@ -223,6 +226,7 @@ const Listings = () => {
             const provider = new Web3Provider(ethereum);
             const signer = provider.getSigner();
             console.log('signer : ', signer);
+            //@ts-ignore
             const VoteContract = new ethers.Contract('0xd51CDee5ed0E6761BbC108646485F01540Db1564', abi, signer);
             console.log('VoteContract : ', VoteContract);
             //calling the smart contract

@@ -26,6 +26,51 @@ const Home = () => {
                             </ol>
                         </h3>
                     </div>
+                    <div className="cutomer_education_img_div">
+                        <img src="../assets/download.jpg" id='cutomer_education_img' alt="This is not loading" />
+                    </div>
+                </div>
+            </div>
+            <div className="footer">
+                <div className="footer_div1">
+                    <h3>Products</h3><br />
+                    <h4>Why Mailchimp?</h4>
+                    <h4>Product Updates</h4>
+                    <h4>Websites</h4>
+                    <h4>Transactional Email</h4>
+                    <h4>How We Compare</h4>
+                    <h4>GDPR Compliance</h4>
+                    <h4>Security</h4>
+                    <h4>Status</h4>
+                    <h4>Mobile App</h4>
+                </div>
+                <div className="footer_div1">
+                    <h3>Resources</h3><br />
+                    <h4>Marketing Library</h4>
+                    <h4>Free Marketing Tools</h4>
+                    <h4>Marketing Glossary</h4>
+                    <h4>Integrations Directory</h4>
+                </div>
+                <div className="footer_div1">
+                    <h3>Community</h3><br />
+                    <h4>Agencies & Freelancers</h4>
+                    <h4>Developers</h4>
+                    <h4>Events</h4>
+                </div>
+                <div className="footer_div1">
+                    <h3>Company</h3><br />
+                    <h4>Our Story</h4>
+                    <h4>Newsroom</h4>
+                    <h4>Careers</h4>
+                    <h4>Transactional Email</h4>
+                    <h4>Accessibility</h4>
+                </div>
+                <div className="footer_div1">
+                    <h3>Help</h3><br />
+                    <h4>Contact Us</h4>
+                    <h4>Hire an Expert</h4>
+                    <h4>Help Center</h4>
+                    <h4>Talk to Sales</h4>
                 </div>
             </div>
         </div>
@@ -33,3 +78,24 @@ const Home = () => {
 }
  
 export default Home;
+
+// Resources
+// Marketing Library
+// Free Marketing Tools
+// Marketing Glossary
+// Integrations Directory
+// Community
+// Agencies & Freelancers
+// Developers
+// Events
+// Company
+// Our Story
+// Newsroom
+// Give Where You Live
+// Careers
+// Accessibility
+// Help
+// Contact Us
+// Hire an Expert
+// Help Center
+// Talk to Sales
